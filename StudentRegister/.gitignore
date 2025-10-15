@@ -34,3 +34,7 @@ build/
 
 ### .env ###
 .env
+
+# H2 archives
+*.mv.db
+*.trace.db
