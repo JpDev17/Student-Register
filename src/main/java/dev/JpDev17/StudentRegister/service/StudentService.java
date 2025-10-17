@@ -50,7 +50,7 @@ public class StudentService {
         return studentMapper.map(student);
         }
 
-        public void deleteStudentById(Integer id) {
+    public void deleteStudentById(Integer id) {
         if (!studentRepository.existsById(id)) {
             throw new EntityNotFoundException("Student not found with id: " + id);
         }

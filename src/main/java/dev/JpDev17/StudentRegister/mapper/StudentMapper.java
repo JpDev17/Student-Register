@@ -12,9 +12,13 @@ public class StudentMapper {
         StudentEntity studentEntity = new StudentEntity();
         studentEntity.setId(studentDTO.getId());
         studentEntity.setStudentName(studentDTO.getStudentName());
+        studentEntity.setStudentAge(studentDTO.getStudentAge());
+        studentEntity.setStudentGender(studentDTO.getStudentGender());
+        studentEntity.setStudentEmail(studentDTO.getStudentEmail());
         studentEntity.setStudentRegistration(studentDTO.getStudentRegistration());
         studentEntity.setStudentMajor(studentDTO.getStudentMajor());
         studentEntity.setStudentGrade(studentDTO.getStudentGrade());
+        studentEntity.setStudentPhoto(studentDTO.getStudentPhoto());
 
         return studentEntity;
     }
@@ -24,9 +28,13 @@ public class StudentMapper {
         StudentDTO studentDTO = new StudentDTO();
         studentDTO.setId(studentEntity.getId());
         studentDTO.setStudentName(studentEntity.getStudentName());
+        studentDTO.setStudentAge(studentEntity.getStudentAge());
+        studentDTO.setStudentGender(studentEntity.getStudentGender());
+        studentDTO.setStudentEmail(studentEntity.getStudentEmail());
         studentDTO.setStudentRegistration(studentEntity.getStudentRegistration());
         studentDTO.setStudentMajor(studentEntity.getStudentMajor());
         studentDTO.setStudentGrade(studentEntity.getStudentGrade());
+        studentDTO.setStudentPhoto(studentEntity.getStudentPhoto());
 
         return studentDTO;
     }

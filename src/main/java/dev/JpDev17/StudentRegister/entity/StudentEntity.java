@@ -13,7 +13,17 @@ public class StudentEntity {
     @Column(name = "name")
     private String studentName;
 
-    @Column(name = "registration")
+    @Column(name = "age")
+    private Integer studentAge;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "gender")
+    private StudentGender studentGender;
+
+    @Column(name = "email", unique = true)
+    private String studentEmail;
+
+    @Column(name = "registration", unique = true)
     private Integer studentRegistration;
 
     @Column(name = "major")
@@ -22,15 +32,22 @@ public class StudentEntity {
     @Column(name = "grade")
     private Float studentGrade;
 
+    @Column(name = "photo")
+    private String studentPhoto;
+
     public StudentEntity() {
     }
 
-    public StudentEntity(Integer id, String studentName, Integer studentRegistration, String studentMajor, Float studentGrade) {
+    public StudentEntity(Integer id, String studentName, Integer studentAge, StudentGender studentGender, String studentEmail, Integer studentRegistration, String studentMajor, Float studentGrade, String studentPhoto) {
         this.id = id;
         this.studentName = studentName;
+        this.studentAge = studentAge;
+        this.studentGender = studentGender;
+        this.studentEmail = studentEmail;
         this.studentRegistration = studentRegistration;
         this.studentMajor = studentMajor;
         this.studentGrade = studentGrade;
+        this.studentPhoto = studentPhoto;
     }
 
     public Integer getId() {
@@ -47,6 +64,30 @@ public class StudentEntity {
 
     public void setStudentName(String studentName) {
         this.studentName = studentName;
+    }
+
+    public Integer getStudentAge() {
+        return studentAge;
+    }
+
+    public void setStudentAge(Integer studentAge) {
+        this.studentAge = studentAge;
+    }
+
+    public StudentGender getStudentGender() {
+        return studentGender;
+    }
+
+    public void setStudentGender(StudentGender studentGender) {
+        this.studentGender = studentGender;
+    }
+
+    public String getStudentEmail() {
+        return studentEmail;
+    }
+
+    public void setStudentEmail(String studentEmail) {
+        this.studentEmail = studentEmail;
     }
 
     public Integer getStudentRegistration() {
@@ -73,14 +114,27 @@ public class StudentEntity {
         this.studentGrade = studentGrade;
     }
 
+    public String getStudentPhoto() {
+        return studentPhoto;
+    }
+
+    public void setStudentPhoto(String studentPhoto) {
+        this.studentPhoto = studentPhoto;
+    }
+
     @Override
     public String toString() {
         return "StudentEntity{" +
                 "id=" + id +
                 ", studentName='" + studentName + '\'' +
+                ", studentAge=" + studentAge +
+                ", studentGender=" + studentGender +
+                ", studentEmail='" + studentEmail + '\'' +
                 ", studentRegistration=" + studentRegistration +
                 ", studentMajor='" + studentMajor + '\'' +
                 ", studentGrade=" + studentGrade +
+                ", studentPhoto='" + studentPhoto + '\'' +
                 '}';
     }
 }
+
