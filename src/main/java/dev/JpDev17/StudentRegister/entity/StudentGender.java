@@ -4,7 +4,5 @@ public enum StudentGender {
 
     MALE,
     FEMALE,
-    NON_BINARY,
     OTHER,
-    UNDISCLOSED
 }
