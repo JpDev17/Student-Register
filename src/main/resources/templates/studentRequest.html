@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Students List</title>
+    <style>
+        body { font-family: "Segoe UI", Arial, sans-serif; background-color: #f3f7fb; margin:0; padding:0; color:#333; }
+        header { background-color:#1e3a8a; color:#fff; padding:15px 0; text-align:center; }
+        .container { width:80%; margin:30px auto; background:#fff; padding:25px; border-radius:12px; box-shadow:0 3px 10px rgba(0,0,0,0.1); }
+        table { width:100%; border-collapse: collapse; margin-top:20px; }
+        th, td { padding:12px 15px; border-bottom:1px solid #e0e0e0; text-align:left; }
+        th { background-color:#2563eb; color:white; }
+        tr:hover { background-color:#f0f4ff; }
+        .btn { display:inline-block; padding:10px 16px; border-radius:8px; text-decoration:none; color:white; font-weight:bold; transition:0.3s; }
+        .btn-primary { background-color:#2563eb; } .btn-primary:hover { background-color:#1d4ed8; }
+        .btn-danger { background-color:#dc2626; } .btn-danger:hover { background-color:#b91c1c; }
+        .btn-secondary { background-color:#6b7280; } .btn-secondary:hover { background-color:#4b5563; }
+        img.student-photo { width:50px; height:50px; border-radius:50%; object-fit:cover; }
+        .message { color:#dc2626; font-weight:bold; margin-top:15px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Students List</h1>
+</header>
+
+<div class="container">
+    <a class="btn btn-primary" th:href="@{/student/ui/create}">➕ Add New Student</a>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Photo</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Email</th>
+            <th>Registration</th>
+            <th>Major</th>
+            <th>Grade</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="student : ${students}">
+            <td>
+                <img th:if="${student.studentPhoto}" th:src="${student.studentPhoto}" class="student-photo" alt="Photo">
+            </td>
+            <td th:text="${student.studentName}"></td>
+            <td th:text="${student.studentAge}"></td>
+            <td th:text="${student.studentGender}"></td>
+            <td th:text="${student.studentEmail}"></td>
+            <td th:text="${student.studentRegistration}"></td>
+            <td th:text="${student.studentMajor}"></td>
+            <td th:text="${student.studentGrade}"></td>
+            <td>
+                <a th:href="@{'/student/ui/get/' + ${student.id}}" class="btn btn-secondary">View</a>
+                <a th:href="@{'/student/ui/delete/' + ${student.id}}" class="btn btn-danger"
+                   onclick="return confirm('Are you sure you want to delete this student?');">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <p th:if="${message}" th:text="${message}" class="message"></p>
+</div>
+
+</body>
+</html>

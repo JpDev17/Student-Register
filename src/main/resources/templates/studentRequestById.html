@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Details</title>
+    <style>
+        body { font-family: "Segoe UI", Arial, sans-serif; background-color: #f3f7fb; margin:0; padding:0; color:#333; }
+        header { background-color:#1e3a8a; color:#fff; padding:15px 0; text-align:center; }
+        .container { width:60%; margin:30px auto; background:#fff; padding:25px; border-radius:12px; box-shadow:0 3px 10px rgba(0,0,0,0.1); }
+        table { width:100%; border-collapse: collapse; margin-top:20px; }
+        th, td { padding:12px 15px; border-bottom:1px solid #e0e0e0; text-align:left; }
+        th { background-color:#2563eb; color:white; width:30%; }
+        img.student-photo { width:100px; height:100px; border-radius:50%; object-fit:cover; margin-bottom:10px; }
+        .btn { display:inline-block; padding:10px 16px; border-radius:8px; text-decoration:none; color:white; font-weight:bold; transition:0.3s; }
+        .btn-primary { background-color:#2563eb; } .btn-primary:hover { background-color:#1d4ed8; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Student Details</h1>
+</header>
+
+<div class="container">
+    <table>
+        <tr>
+            <th>Photo</th>
+            <td>
+                <img th:if="${students.studentPhoto}" th:src="${students.studentPhoto}" class="student-photo" alt="Photo">
+            </td>
+        </tr>
+        <tr><th>Name</th><td th:text="${students.studentName}"></td></tr>
+        <tr><th>Age</th><td th:text="${students.studentAge}"></td></tr>
+        <tr><th>Gender</th><td th:text="${students.studentGender}"></td></tr>
+        <tr><th>Email</th><td th:text="${students.studentEmail}"></td></tr>
+        <tr><th>Registration</th><td th:text="${students.studentRegistration}"></td></tr>
+        <tr><th>Major</th><td th:text="${students.studentMajor}"></td></tr>
+        <tr><th>Grade</th><td th:text="${students.studentGrade}"></td></tr>
+    </table>
+
+    <br>
+    <a class="btn btn-primary" th:href="@{/student/ui/get}">⬅ Back to List</a>
+</div>
+
+</body>
+</html>
