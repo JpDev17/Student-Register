@@ -44,7 +44,7 @@ mvn spring-boot:run
 4. Access the API or UI:
 * Swagger UI: http://localhost:8080/swagger-ui.html
 * Thymeleaf Web Interface: http://localhost:8080/student/ui
-* wAPI Base URL: http://localhost:8080/api/student
+* API Base URL: http://localhost:8080/api/student
 
 ## Database Schema
 Table: tb_student_register
